@@ -1,0 +1,104 @@
+/* General Styles */
+body {
+    background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../jpg/thao-lee-jc9UD4JQFRQ-unsplash.jpg) no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+     background: rgba(40, 40, 40, 0.92);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #007bff;
+}
+
+
+
+main {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    background-color: rgba(255,255,255,0.92);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    color: #222; /* Dark text for readability on light background */
+}
+
+.main-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    margin: 10px 10px 0 0;
+    background: #e63946;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.main-btn:hover, .main-btn:focus {
+    background: #a4161a;
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
+    text-decoration: none;
+}
+.main-btn-signup {
+    background: #457b9d;
+}
+.main-btn-signup:hover, .main-btn-signup:focus {
+    background: #1d3557;
+}
+
+.back-btn {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    display: inline-block;
+    z-index: 2;
+}
+.back-btn img {
+    width: 28px;
+    height: 28px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+.back-btn img:hover {
+    opacity: 1;
+}
+.signup-container {
+    position: relative;
+}
+
+.login-container {
+    position: relative;
+}

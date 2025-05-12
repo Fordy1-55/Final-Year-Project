@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Martial Manager</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .signup-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 16px rgba(0,0,0,0.13);
+            padding: 36px 24px 24px 24px;
+            width: 340px;
+            text-align: center;
+            position: relative;
+        }
+        .signup-container h2 { margin-bottom: 22px; color: #222; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; text-align: left; margin-bottom: 6px; color: #555; font-weight: 500; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 1em;
+        }
+        .form-group select {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+            background: #fff;
+        }
+        .signup-button { background-color: #28a745; color: #fff; padding: 11px 0; width: 100%; border: none; border-radius: 5px; cursor: pointer; font-size: 1.08em; font-weight: bold; transition: background 0.2s; margin-top: 8px; }
+        .signup-button:hover { background-color: #218838; }
+        .back-btn {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            display: inline-block;
+            z-index: 2;
+        }
+        .back-btn img {
+            width: 26px;
+            height: 26px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .back-btn img:hover { opacity: 1; }
+        @media (max-width: 400px) {
+            .signup-container { width: 98vw; min-width: 0; padding: 18px 4vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <a href="../index.php" class="back-btn" title="Back to Home">
+            <img src="../jpg/undo-circle.svg" alt="Back" />
+        </a>
+        <h2>Sign Up</h2>
+        <form action="../php/signup_process.php" method="POST">
+            <div class="form-group">
+                <label for="new_username">Username</label>
+                <input type="text" id="new_username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="new_password">Password</label>
+                <input type="password" id="new_password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" name="role" required>
+                    <option value="student">Student</option>
+                    <option value="parent">Parent</option>
+                    <option value="sensei">Sensei</option>
+                </select>
+            </div>
+            <button type="submit" class="signup-button">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>
