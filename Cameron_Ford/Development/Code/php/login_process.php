@@ -2,7 +2,7 @@
 // login_process.php
 // This script processes the login form submission
 session_start(); // Start the session
-
+header('Content-Type: application/json'); // Set content type to JSON
 // Database connection settings
 $servername = "localhost";
 $username = "root"; // default XAMPP user
@@ -14,7 +14,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    echo json_encode(['success' => false, 'message' => 'Database connection failed.']);
+    exit();
 }
 
 // Get form data
@@ -32,13 +33,14 @@ if ($row = $result->fetch_assoc()) {
     if (password_verify($pass, $row['password'])) {
         // Success: redirect or start session
         $_SESSION['username'] = $row['username'];
-        header("Location: ../html/home.php");
+        $_SESSION['role'] = $row['role'];
+        echo json_encode(['success' => true]);
         exit();
     } else {
-        echo "Invalid password.";
+        echo json_encode(['success' => false, 'message' => 'Invalid password. Please try again.']);
     }
 } else {
-    echo "User not found.";
+    echo json_encode(['success' => false, 'message' => 'User not found.']);
 }
 
 $stmt->close();
