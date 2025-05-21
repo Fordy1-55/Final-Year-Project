@@ -34,6 +34,7 @@ if ($row = $result->fetch_assoc()) {
         // Success: redirect or start session
         $_SESSION['username'] = $row['username'];
         $_SESSION['role'] = $row['role'];
+        $_SESSION['id'] = $row['id'];
         echo json_encode(['success' => true]);
         exit();
     } else {

@@ -19,17 +19,18 @@ $role = $_SESSION['role'];
         <h1>Martial Manager</h1>
         <nav>
     <?php if ($role == 'sensei'): ?>
-        <a href="timetable.php">Manage Timetable</a>
-        <a href="students.php">Manage Students</a>
-        <a href="events.php">Manage Events</a>
+        <a href="../php/timetable.php">Manage Timetable</a>
+        <a href="../php/manage_students.php">Manage Students</a>
+        <a href="../php/manage_requirements.php">Manage Belts</a>
     <?php elseif ($role == 'parent'): ?>
-        <a href="child_progress.php">View Child Progress</a>
-        <a href="schedule.php">View Schedule</a>
+        <a href="../php/child_progress.php">View Child Progress</a>
+        <a href="../php/schedule.php">View Schedule</a>
+        <a href="../php/link_child.php">Link a Child</a>
     <?php elseif ($role == 'student'): ?>
-        <a href="progress.php">View Progress</a>
-        <a href="schedule.php">View Schedule</a>
+        <a href="../php/student_progress.php">View Progress</a>
+        <a href="../php/schedule.php">View Schedule</a>
     <?php endif; ?>
-    
+
     <?php if ($isLoggedIn): ?>
         <span style="margin-left:15px; color:#fff;">User: <?php echo htmlspecialchars($_SESSION['username']); ?></span>
         <a href="../php/logout.php" style="margin-left: 15px;">Log out</a>
@@ -53,6 +54,6 @@ $role = $_SESSION['role'];
             <p>This is wrong. you shouldnt be getting this message.</p>
         <?php endif; ?>
     </main>
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> 
 </body>
 </html>

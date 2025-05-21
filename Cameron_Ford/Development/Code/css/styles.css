@@ -102,3 +102,46 @@ main {
 .login-container {
     position: relative;
 }
+
+.timetable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.timetable th, .timetable td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.timetable thead {
+    background: #457b9d;
+    color: #fff;
+}
+
+.timetable tr:nth-child(even) {
+    background: #f4f8fb;
+}
+
+.timetable tr:hover {
+    background: #e0ecf7;
+}
+
+.timetable th {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.timetable td a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 4px;
+}
+
+.timetable td a:hover {
+    text-decoration: underline;
+}
