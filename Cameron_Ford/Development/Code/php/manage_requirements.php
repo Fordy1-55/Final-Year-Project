@@ -54,8 +54,8 @@ if (isset($_GET['delete'])) {
 // Handle edit
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_id'])) {
     $id = intval($_POST['edit_id']);
-    $belt = trim($_POST['edit_belt']); // <-- get new belt from POST
-    $requirement = trim($_POST['edit_requirement']); // <-- get new requirement from POST
+    $belt = trim($_POST['edit_belt']); 
+    $requirement = trim($_POST['edit_requirement']);
 
     $old = $conn->query("SELECT belt, requirement FROM belt_requirements WHERE id = $id")->fetch_assoc();
     $old_belt = $old['belt'];

@@ -15,13 +15,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['student_id'], $_POST['new_belt'])) {
     $student_id = intval($_POST['student_id']);
     $new_belt = trim($_POST['new_belt']);
-    // Update belt in users table
+
+    // Update the user's belt
     $stmt = $conn->prepare("UPDATE users SET belt=? WHERE id=?");
     $stmt->bind_param("si", $new_belt, $student_id);
     $stmt->execute();
     $stmt->close();
 
-    // Remove old progress and add new requirements for the new belt
+    // Clear old progress and insert new requirements
     $conn->query("DELETE FROM progress WHERE student_id=$student_id");
     $reqs = $conn->query("SELECT belt, requirement FROM belt_requirements WHERE belt = '$new_belt'");
     if ($reqs) {
@@ -49,7 +50,7 @@ if ($result) {
     }
 }
 
-// Fetch all belts for dropdown
+// Fetch all belts for dropdown menu
 $belts = [];
 $belts_result = $conn->query("SELECT DISTINCT belt FROM belt_requirements ORDER BY belt");
 if ($belts_result) {

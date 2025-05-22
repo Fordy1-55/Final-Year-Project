@@ -21,8 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['progress_id'])) {
     $stmt->close();
 }
 
+$belt_result = $conn->query("SELECT belt FROM users WHERE id = $student_id");
+$student_belt = 'white';
+if ($belt_result && $row = $belt_result->fetch_assoc()) {
+    $student_belt = $row['belt'];
+}
+
 $progress = [];
-$result = $conn->query("SELECT * FROM progress WHERE student_id = $student_id ORDER BY belt, id");
+$result = $conn->query("SELECT * FROM progress WHERE student_id = $student_id AND belt = '$student_belt' ORDER BY id");
 if ($result) {
     while ($row = $result->fetch_assoc()) {
         $progress[] = $row;

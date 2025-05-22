@@ -1,5 +1,4 @@
 <?php
-// filepath: c:\xampp\htdocs\Final Year Project\Cameron_Ford\Development\Code\html\home.php
 session_start();
 $isLoggedIn = isset($_SESSION['username']);
 $role = $_SESSION['role'];
@@ -54,6 +53,17 @@ $role = $_SESSION['role'];
             <p>This is wrong. you shouldnt be getting this message.</p>
         <?php endif; ?>
     </main>
-    <script src="js/script.js"></script> 
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 600) {
+        document.body.style.display = 'none';
+        setTimeout(function() {
+            document.body.style.display = '';
+            window.scrollTo(0, 1); 
+        }, 20);
+    }
+});
+</script>
 </body>
 </html>
